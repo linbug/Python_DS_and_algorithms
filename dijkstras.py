@@ -1,6 +1,6 @@
 #Dijkstra's algorithm
 
-costs = {'start':0, 'A':6, 'B':2, 'fin' : None}
+costs = {'start':0, 'A':6, 'B':2, 'fin' : float('inf')}
 
 graph = {'start': {'A':6, 'B':2},'A':{'fin':1},'B':{'A':3,'fin':5}, 'fin':{}}
 
@@ -32,7 +32,7 @@ def dijkstra(current_node = 'start'):
                 print('adding '+ str(list(graph[current_node])) + ' to the queue')
                 print(seen)
         for child in list(graph[current_node]): #calculate whether there is a cheaper way to reach the children of the current node
-            if costs[child] == None or costs[child]<(costs[current_node]+costs[child]):
+            if costs[child]<(costs[current_node]+costs[child]):
                 costs[child] = graph[current_node][child] + costs[current_node]
                 print('updating cost of ' + str(child) + ' to ' + str(graph[current_node][child] + costs[current_node]))
                 parents[child] = current_node
