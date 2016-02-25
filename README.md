@@ -5,11 +5,18 @@ A learning exercise to help me get to understand common CS data structures and a
 TODO:
 
 queues x
+
 stacks x
+
 BFS
+
 DFS
+
 linked list
+
 dijkstra's algorithm x
+
 quicksort
+
 merge sort
 
