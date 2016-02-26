@@ -42,7 +42,7 @@ def find_lowest_cost_node(costs, processed):
 def find_final_path(parents):
     '''return the path between start and fin'''
     current_node = parents['fin']
-    path = "-->fin"
+    path = "fin"
     while current_node:
         path = '-->' + path
         path = str(current_node) + path
