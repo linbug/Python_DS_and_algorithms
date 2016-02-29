@@ -8,6 +8,8 @@ queues x
 
 stacks x
 
+heap x
+
 BFS
 
 DFS
