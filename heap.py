@@ -8,6 +8,7 @@
     # The left child is the 2*kth index
     # The right child is the 2*k + 1 index
     # The parent is the floor(k/2) element
+#delete_min function allows you to do heapsort
 import math
 
 class Heap:
@@ -37,7 +38,10 @@ class Heap:
         #if both children are smaller, swap with the smallest
         # if only one child is smaller, swap with the smaller
         while current_value > left_child_value or current_value > right_child_value:
-            if current_value > left_child_value and current_value > right_child_value:
+            print('current value = ' + str(current_value))
+            print('left child value = ' + str(left_child_value))
+            print('right child value = ' + str(right_child_value))
+            if current_value > left_child_value and current_value > right_child_value and right_child_value:
                 if left_child_value <= right_child_value or (current_value > left_child_value and current_value < right_child_value):
                     if left_child_index<= len(self.data)-1 and left_child_index:
                         current_index, current_value, left_child_index, left_child_value, right_child_index, right_child_value\
@@ -88,7 +92,7 @@ class Heap:
 
     def delete_min(self):
         min = self.data[1]
-        self.data[1] = self.data.pop(len(self.data)-1) if len(self.data)-1 > 2 else None
+        self.data[1] = self.data.pop(len(self.data)-1) if len(self.data)-1 >= 2 else None
         if self.data[1]:
             self.percolate_down()
         return min
