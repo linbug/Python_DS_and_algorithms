@@ -18,7 +18,7 @@ linked list
 
 dijkstra's algorithm x
 
-quicksort
+quicksort x
 
 merge sort
 
