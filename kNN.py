@@ -6,6 +6,7 @@
 # So I should separate out calculation of distances from classification
 
 import math
+from collections import Counter
 
 classes = ['A','A','A','B','B','B'] #e.g. A = cat B = dog
 
@@ -23,10 +24,19 @@ def calculate_nearest_neighbours(k, point, data, classes):
     distances = []
     for item in data:
         distances.append(calculate_distance(point,item))
-    return distances
+    sorted_indexes = sorted(range(len(distances)), key= lambda x:distances[x])
+    return sorted_indexes[:k]
+
+def categorise(point, k, classes, data):
+    nearest_categories = []
+    neighbours = calculate_nearest_neighbours(k, point, data, classes)
+    for index in neighbours:
+        nearest_categories.append(classes[index])
+    count = Counter(nearest_categories)
+    return count.most_common(1)[0][0]
 
 
 if __name__ == '__main__':
     import pudb
-    pudb.set_trace()
-    calculate_nearest_neighbours(3,[5,5],data,classes)
+    # pudb.set_trace()
+    print categorise([5,5],3,classes,data)
