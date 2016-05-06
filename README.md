@@ -22,3 +22,5 @@ quicksort x
 
 merge sort
 
+kNN
+
